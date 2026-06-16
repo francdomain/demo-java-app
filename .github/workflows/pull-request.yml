@@ -1,0 +1,34 @@
+# Runs on all pull requests. Validates branch naming convention; only allowed prefixes trigger the Java reusable pipeline. Invalid prefixes fail the check-branch-name job.
+name: Pull Request
+on:
+  pull_request:
+    branches:
+      - '**'
+
+jobs:
+  java-ci:
+    name: Java CI
+    if: |
+      startsWith(github.head_ref, 'feature/') ||
+      startsWith(github.head_ref, 'release/') ||
+      startsWith(github.head_ref, 'hotfix/') ||
+      startsWith(github.head_ref, 'bugfix/')
+    uses: francdomain/reusable-pipeline-templates/.github/workflows/java-on-pull-request.yml@shared/java
+    secrets: inherit
+
+  check-branch-name:
+    name: Check Branch Name
+    runs-on: ubuntu-latest
+    if: |
+      !(
+        startsWith(github.head_ref, 'feature/') ||
+        startsWith(github.head_ref, 'release/') ||
+        startsWith(github.head_ref, 'hotfix/') ||
+        startsWith(github.head_ref, 'bugfix/')
+      )
+    steps:
+      - name: Validate branch name
+        run: |
+          echo "::error::Branch '${{ github.head_ref }}' does not follow naming convention."
+          echo "Allowed prefixes: feature/*, release/*, hotfix/*, bugfix/*"
+          exit 1

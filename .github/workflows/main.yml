@@ -1,0 +1,11 @@
+# Runs only on pushes to main.
+name: Main Branch Push
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  ci:
+    uses: francdomain/reusable-pipeline-templates/.github/workflows/java-on-main-branch-update.yml@shared/java
+    secrets: inherit
