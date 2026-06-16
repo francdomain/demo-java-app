@@ -14,6 +14,8 @@ jobs:
       startsWith(github.head_ref, 'hotfix/') ||
       startsWith(github.head_ref, 'bugfix/')
     uses: francdomain/reusable-pipeline-templates/.github/workflows/java-on-pull-request.yml@shared/java
+    with:
+      veracode-wrapper-version: "24.9.15.0"
     secrets: inherit
 
   check-branch-name:
