@@ -9,6 +9,5 @@ jobs:
   ci:
     uses: francdomain/reusable-pipeline-templates/.github/workflows/java-on-main-branch-update.yml@shared/java
     with:
-      docker-registry-url: "docker.io"
+      docker-registry: "docker.io"
     secrets: inherit
-    
