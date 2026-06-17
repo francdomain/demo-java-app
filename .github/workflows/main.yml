@@ -10,4 +10,5 @@ jobs:
     uses: francdomain/reusable-pipeline-templates/.github/workflows/java-on-main-branch-update.yml@shared/java
     with:
       docker-registry: "docker.io"
+      docker-image-name: "francdomain/demo-java-app"
     secrets: inherit
