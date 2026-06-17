@@ -11,3 +11,4 @@ jobs:
     with:
       docker-registry-url: "docker.io"
     secrets: inherit
+    
