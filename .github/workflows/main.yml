@@ -11,4 +11,6 @@ jobs:
     with:
       docker-registry: "docker.io"
       docker-image-name: "francdocmain/demo-java-app"
+      sonar-project-key: ${{ vars.SONAR_PROJECT_KEY }}
+      sonar-organization: ${{ vars.SONAR_ORGANIZATION }}
     secrets: inherit

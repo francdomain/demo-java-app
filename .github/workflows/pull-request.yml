@@ -16,6 +16,8 @@ jobs:
     uses: francdomain/reusable-pipeline-templates/.github/workflows/java-on-pull-request.yml@shared/java
     with:
       veracode-wrapper-version: "24.9.15.0"
+      sonar-project-key: ${{ vars.SONAR_PROJECT_KEY }}
+      sonar-organization: ${{ vars.SONAR_ORGANIZATION }}
     secrets: inherit
 
   check-branch-name:
