@@ -16,10 +16,9 @@ jobs:
       gitops-repo: "francdomain/gitops-manifests"
       image-pull-secret-enabled: false
       # argocd-server: "argocd.yourdomain.com"
-      rollout-enabled: true
+      rollout-enabled: false
       gitops-branch: "main"
       gitops-values-path: "uat/values/demo-java-app.yaml"
-      image-pull-secret-enabled: false
       argocd-server: "ae6a8cb58ca8a4c84aa7a60a4c689aac-194937836.us-east-1.elb.amazonaws.com"  # from terraform output
       argocd-app-name: "demo-java-app"
     secrets: inherit
