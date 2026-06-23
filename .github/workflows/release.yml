@@ -18,6 +18,6 @@ jobs:
       gitops-values-path: "production/values/demo-java-app.yaml"
       image-pull-secret-enabled: false
       argocd-server: ${{ vars.ARGOCD_SERVER }}
-      argocd-app-name: "demo-java-app"
+      argocd-app-name: "demo-java-app-production"
       rollout-enabled: false
     secrets: inherit
