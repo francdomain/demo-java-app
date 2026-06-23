@@ -1,13 +1,13 @@
-name: Main Branch Push
+name: Release Branch Push
 
 on:
   push:
     branches:
-      - main
+      - "release/*"
 
 jobs:
   ci:
-    uses: francdomain/reusable-pipeline-templates/.github/workflows/java-on-main-branch-update.yml@shared/java
+    uses: francdomain/reusable-pipeline-templates/.github/workflows/java-on-release-branch.yml@shared/java
     with:
       docker-registry: "docker.io"
       docker-image-name: "francdocmain/demo-java-app"
@@ -15,7 +15,7 @@ jobs:
       sonar-organization: ${{ vars.SONAR_ORGANIZATION }}
       gitops-repo: "francdomain/gitops-manifests"
       gitops-branch: "main"
-      gitops-values-path: "uat/values/demo-java-app.yaml"
+      gitops-values-path: "production/values/demo-java-app.yaml"
       image-pull-secret-enabled: false
       argocd-server: "YOUR_ARGOCD_HOSTNAME"
       argocd-app-name: "demo-java-app"
