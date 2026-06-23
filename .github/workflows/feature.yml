@@ -17,5 +17,5 @@ jobs:
       image-pull-secret-enabled: false
       argocd-server: ${{ vars.ARGOCD_SERVER }}
       argocd-app-name: "demo-java-app"
-      rollout-enabled: false
+      rollout-enabled: true
     secrets: inherit
